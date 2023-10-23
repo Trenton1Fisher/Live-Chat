@@ -1,5 +1,4 @@
 /* Landing Page Css */
-
 .connect--container {
   display: flex;
   justify-content: center;
@@ -15,9 +14,54 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
+.connect--nav {
+  list-style: none;
+  cursor: pointer;
+  margin: auto;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.connect--nav--option {
+  display: inline;
+  margin: auto;
+  padding: 0;
+  margin: 5px;
+}
+
+.connect--nav--option a {
+  text-decoration: none;
+  color: #000; /* Set the default text color */
+  cursor: pointer;
+  text-align: center;
+  position: relative; /* For the animated underline */
+}
+
+.connect--nav--option a:hover::before,
+.connect--nav--option a:focus::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Adjust this value to make the line thicker */
+  background: #000; /* Line color */
+  bottom: -2px; /* Adjust this value to control the position of the line */
+  animation: growLine 0.2s ease-in-out; /* Add an animation */
+}
+
+@keyframes growLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 .form--input {
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 10px 0;
   width: 90%;
   border: 1px solid #ccc;
@@ -54,6 +98,8 @@
   transform: translate(-50%, -50%);
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
 }
 
 .message--navbar {
@@ -147,4 +193,89 @@
 
 .message--send--button:hover {
   transform: scale(1.1);
+}
+
+/* Loader Styles*/
+.loader--container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+  z-index: 9999; /* Ensure the loading container is above other content */
+  border-radius: 20px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.read--messages--container {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 15%;
+}
+
+.sent--message {
+  background-color: #007aff;
+  border-radius: 20px;
+  margin-right: 5px;
+  word-wrap: break-word;
+  color: white;
+}
+
+.recieved--message--container {
+  margin: 5px;
+  max-width: 60%;
+  align-self: self-end;
+}
+
+.sent--message--container{
+max-width: 60%;
+align-self: self-start;
+margin: 5px;
+}
+
+.recieved--message {
+  background-color: #d0d0d0;
+  border-radius: 20px;
+  margin-right: 5px;
+  word-wrap: break-word;
+}
+
+.message--content {
+	padding: 12px;
+	margin: 5px;
+
+}
+
+.recieved--message--container .message--user {
+	text-align: right;
+}
+
+
+.message--user {
+	margin: 3px;
+	font-size: larger
+
 }
